@@ -26,7 +26,12 @@ dengan `git remote -v`, lalu gunakan `git push`.
 4. Framework akan terbaca sebagai Vite.
 5. Build Command: `npm run build`.
 6. Output Directory: `dist`.
-7. Deploy.
+7. Pada Settings > Build and Deployment, pilih Node.js **22.x**.
+8. Deploy.
+
+Project mengunci Node melalui `.nvmrc` dan `package.json`. Jika Vercel menampilkan
+peringatan **Node.js Version Override**, samakan pengaturan project menjadi
+`22.x`, lalu redeploy. Jangan pilih 24.x untuk rilis MVP ini.
 
 Landing dan seluruh mode demo bisa dibuka tanpa environment variable. Untuk
 Supabase, tambahkan variabel berikut di Vercel Project Settings > Environment

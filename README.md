@@ -88,7 +88,7 @@ UI checkout sudah tersedia, tetapi payment gateway sengaja belum berpura-pura ak
 
 ## Identitas Merek
 
-Nama kerja: **TokoRupa**. Makna: satu platform dengan banyak rupa usaha. Logo menggabungkan awning toko dan tiga panel etalase. Hijau tua memberi rasa stabil, biru menjadi penanda aksi, dan krem menjaga karakter tetap hangat.
+Nama kerja: **TokoRupa**. Makna: satu platform dengan banyak rupa usaha. Identitas menggunakan logo burung geometris milik pemilik project, teal sebagai warna aksi, biru-abu untuk fondasi, coral untuk penanda, dan krem sebagai latar hangat.
 
 Sebelum peluncuran komersial, periksa ketersediaan merek, akun sosial, dan domain. Nama ini belum diklaim aman secara hukum.
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import {
   ArrowRight, BadgeCheck, BarChart3, Check, ChevronRight, Coffee, CreditCard,
-  Download, ExternalLink, FileText, LayoutDashboard, Menu,
+  Download, ExternalLink, FileText, LayoutDashboard, Mail, Menu, MessageCircle,
   MousePointer2, Package, Palette, Plus, QrCode, Search, Settings, ShoppingBag, Store,
   Upload, Wallet, X,
 } from 'lucide-react'
@@ -20,9 +20,9 @@ function Landing() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeBusiness, setActiveBusiness] = useState(0)
   const liveTypes = [
-    { name: 'Kopi Ruang', type: 'Coffee shop', accent: '#0c5b45', items: ['Es Kopi Aren', 'Flat White', 'Cold Black'] },
-    { name: 'Rona Studio', type: 'Fashion', accent: '#2f6df6', items: ['Olive Overshirt', 'Daily Tee', 'Canvas Tote'] },
-    { name: 'Kelas Karya', type: 'Produk digital', accent: '#d68a13', items: ['Workbook Brand', 'Template Konten', 'Kelas Rekaman'] },
+    { name: 'Kopi Ruang', type: 'Coffee shop', accent: '#087f79', items: ['Es Kopi Aren', 'Flat White', 'Cold Black'] },
+    { name: 'Rona Studio', type: 'Fashion', accent: '#274755', items: ['Olive Overshirt', 'Daily Tee', 'Canvas Tote'] },
+    { name: 'Kelas Karya', type: 'Produk digital', accent: '#e4515b', items: ['Workbook Brand', 'Template Konten', 'Kelas Rekaman'] },
   ]
   const activeStore = liveTypes[activeBusiness]
   return (
@@ -115,6 +115,25 @@ function Landing() {
         </div>
       </section>
 
+      <section className="mobile-ops">
+        <div className="shell mobile-ops-inner">
+          <div className="mobile-ops-art">
+            <img src="/assets/seller-mobile.webp" alt="Ilustrasi seller mengelola coffee shop, fashion, dan produk digital dari HP" width="1200" height="900" loading="lazy" />
+            <div className="ops-badge"><span>42</span><div><b>Pesanan hari ini</b><small>Semua dari satu dashboard</small></div></div>
+          </div>
+          <div className="mobile-ops-copy">
+            <span className="eyebrow dark">Bekerja dari mana saja</span>
+            <h2>Tokomu tetap jalan, cukup dari HP.</h2>
+            <p>Tambah produk, cek pembayaran, dan proses pesanan tanpa harus membuka laptop atau belajar dashboard yang rumit.</p>
+            <div className="ops-points">
+              <article><b>01</b><div><strong>Pesanan langsung rapi</strong><span>Tidak perlu mencari chat pelanggan satu per satu.</span></div></article>
+              <article><b>02</b><div><strong>QRIS dan pembayaran</strong><span>Mulai manual, lalu aktifkan gateway ketika siap.</span></div></article>
+              <article><b>03</b><div><strong>Satu akun, banyak rupa</strong><span>Coffee, fashion, dan digital punya alur masing-masing.</span></div></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="proof shell">
         <div className="proof-photo"><img src="/assets/fashion-collection.webp" alt="Koleksi produk fashion independen" width="1400" height="933" loading="lazy" /></div>
         <div className="proof-copy">
@@ -138,11 +157,18 @@ function Landing() {
         </div>
       </section>
 
-      <footer className="footer shell">
-        <Brand />
-        <p>Toko siap pakai untuk setiap usaha.</p>
-        <div><a href="#cara-kerja">Cara kerja</a><a href="#harga">Harga</a><a href="mailto:halo@tokorupa.id">Kontak</a></div>
-        <small>(c) 2026 TokoRupa. Nama merek dan domain perlu diperiksa sebelum peluncuran komersial.</small>
+      <section className="footer-cta">
+        <div className="shell"><div><span>Tidak perlu menunggu semuanya sempurna.</span><h2>Buka tokomu hari ini.</h2></div><Link className="button button-cream" to="/mulai">Mulai gratis <ArrowRight /></Link></div>
+      </section>
+
+      <footer className="site-footer">
+        <div className="shell footer-main">
+          <div className="footer-brand"><Brand light /><p>Toko siap pakai yang mengikuti cara setiap usaha berjualan.</p><div className="footer-social"><a href="mailto:halo@tokorupa.id" aria-label="Email TokoRupa"><Mail /></a><Link to="/info/bantuan" aria-label="Bantuan TokoRupa"><MessageCircle /></Link><Link to="/info/panduan" aria-label="Panduan TokoRupa"><FileText /></Link></div></div>
+          <div className="footer-column"><b>Produk</b><a href="#jenis-usaha">Coffee shop</a><a href="#jenis-usaha">Fashion</a><a href="#jenis-usaha">Produk digital</a><a href="#harga">Harga</a></div>
+          <div className="footer-column"><b>Perusahaan</b><a href="#cara-kerja">Cara kerja</a><Link to="/toko/kopi-ruang">Contoh toko</Link><a href="mailto:halo@tokorupa.id">Hubungi kami</a><Link to="/info/tentang">Tentang TokoRupa</Link></div>
+          <div className="footer-column"><b>Bantuan</b><Link to="/info/bantuan">Pusat bantuan</Link><Link to="/info/panduan">Panduan seller</Link><Link to="/info/status">Status layanan</Link><Link to="/info/keamanan">Keamanan</Link></div>
+        </div>
+        <div className="shell footer-bottom"><span>(c) 2026 TokoRupa</span><div><Link to="/info/ketentuan">Ketentuan</Link><Link to="/info/privasi">Privasi</Link><Link to="/info/cookie">Cookie</Link></div><small>Dibuat untuk usaha yang ingin mulai tanpa ribet.</small></div>
       </footer>
     </main>
   )
@@ -274,7 +300,25 @@ function Storefront() {
   </main>
 }
 
+const infoPages = {
+  tentang: ['Tentang TokoRupa', 'TokoRupa membantu usaha membuat toko online yang mengikuti cara mereka berjualan, tanpa harus memulai dari kanvas kosong.', ['Produk ini masih berada pada tahap MVP.', 'Fokus awalnya adalah coffee shop, fashion, dan produk digital.', 'Kami membangun alur yang tetap nyaman dikelola dari HP.']],
+  bantuan: ['Pusat bantuan', 'Temukan jalur tercepat untuk menyiapkan toko dan menyelesaikan kendala penggunaan.', ['Buat akun lalu pilih jenis usaha.', 'Tambahkan produk dan metode pembayaran.', 'Hubungi halo@tokorupa.id jika mengalami kendala.']],
+  panduan: ['Panduan seller', 'Mulai dari toko kecil yang lengkap, lalu tambahkan fitur saat benar-benar dibutuhkan.', ['Lengkapi nama, deskripsi, dan kontak usaha.', 'Gunakan foto produk yang terang dan jelas.', 'Lakukan satu pesanan percobaan sebelum membagikan toko.']],
+  status: ['Status layanan', 'Halaman status publik TokoRupa.', ['Landing dan demo storefront: aktif.', 'Dashboard demo: aktif.', 'Payment gateway: belum diaktifkan pada MVP.']],
+  keamanan: ['Keamanan', 'Data seller dirancang menggunakan Supabase Auth dan Row Level Security.', ['Jangan pernah membagikan password atau service-role key.', 'Secret payment gateway harus disimpan di server.', 'Laporkan masalah keamanan melalui halo@tokorupa.id.']],
+  ketentuan: ['Ketentuan layanan', 'Ketentuan final akan diterbitkan sebelum layanan menerima transaksi komersial.', ['Pengguna bertanggung jawab atas produk yang dijual.', 'Konten ilegal dan menyesatkan dilarang.', 'Kebijakan dapat diperbarui dengan pemberitahuan.']],
+  privasi: ['Kebijakan privasi', 'TokoRupa hanya akan memproses data yang diperlukan untuk menjalankan toko dan pesanan.', ['Data tidak dijual kepada pihak lain.', 'Akses data dibatasi berdasarkan pemilik toko.', 'Permintaan penghapusan dapat dikirim melalui email.']],
+  cookie: ['Kebijakan cookie', 'Cookie digunakan untuk sesi login dan preferensi penting aplikasi.', ['Cookie pemasaran tidak aktif pada MVP.', 'Sesi autentikasi dikelola oleh penyedia backend.', 'Pengguna dapat menghapus cookie melalui browser.']],
+}
+
+function InfoPage() {
+  const { page } = useParams()
+  const content = infoPages[page] || infoPages.bantuan
+  useEffect(() => { window.scrollTo(0, 0) }, [page])
+  return <main className="info-page"><nav className="nav shell"><Brand /><Link to="/">Kembali ke beranda</Link></nav><section><span className="form-kicker">Informasi TokoRupa</span><h1>{content[0]}</h1><p>{content[1]}</p><div>{content[2].map((item, index) => <article key={item}><b>0{index + 1}</b><span>{item}</span></article>)}</div><a className="button button-green" href="mailto:halo@tokorupa.id">Hubungi kami <Mail /></a></section></main>
+}
+
 export default function App() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
-  return <Routes><Route path="/" element={<Landing />} /><Route path="/login" element={<AuthPage />} /><Route path="/mulai" element={<Onboarding />} /><Route path="/dashboard" element={<Dashboard />} /><Route path="/toko/:slug" element={<Storefront />} /><Route path="*" element={<Navigate to="/" replace />} /></Routes>
+  return <Routes><Route path="/" element={<Landing />} /><Route path="/login" element={<AuthPage />} /><Route path="/mulai" element={<Onboarding />} /><Route path="/dashboard" element={<Dashboard />} /><Route path="/toko/:slug" element={<Storefront />} /><Route path="/info/:page" element={<InfoPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Routes>
 }

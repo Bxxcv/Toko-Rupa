@@ -15,10 +15,11 @@ Janji utama: **Pilih jenis usaha. Toko langsung siap jualan.**
 ## Identitas Visual
 
 - Nama: TokoRupa.
-- Logo: bentuk awning toko dengan tiga panel etalase.
-- Hijau `#0C5B45`: merek utama, stabil dan dekat dengan perdagangan.
-- Biru `#2F6DF6`: aksi, data, dan penanda pilihan.
-- Krem `#F2EFDF`: latar hangat tanpa tampilan generik beige.
+- Logo: burung geometris milik pemilik project, dipakai bersama wordmark TokoRupa.
+- Teal `#087F79`: aksi utama dan identitas produk.
+- Biru-abu `#274755`: dashboard, footer, dan teks pendukung.
+- Coral `#E4515B`: CTA sekunder serta penanda penting.
+- Krem `#F2EFDF`: latar hangat untuk menjaga halaman tetap ringan.
 - Tipografi: system sans-serif untuk produk; Georgia hanya sebagai aksen editorial di storefront coffee.
 - Radius kecil 3-5 px; kartu hanya untuk item berulang dan data dashboard.
 
