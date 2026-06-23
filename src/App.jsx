@@ -3,7 +3,7 @@ import { Link, Navigate, Route, Routes, useNavigate, useParams } from 'react-rou
 import {
   ArrowRight, BadgeCheck, BarChart3, Check, ChevronRight, Coffee, CreditCard,
   Download, ExternalLink, FileText, LayoutDashboard, Mail, Menu, MessageCircle,
-  MousePointer2, Package, Palette, Plus, QrCode, Search, Settings, ShoppingBag, Store,
+  MousePointer2, Package, Plus, QrCode, Search, Settings, ShoppingBag, Store,
   Upload, Wallet, X,
 } from 'lucide-react'
 import Brand from './components/Brand'
@@ -22,7 +22,7 @@ function Landing() {
   const liveTypes = [
     { name: 'Kopi Ruang', type: 'Coffee shop', accent: '#087f79', items: ['Es Kopi Aren', 'Flat White', 'Cold Black'] },
     { name: 'Rona Studio', type: 'Fashion', accent: '#274755', items: ['Olive Overshirt', 'Daily Tee', 'Canvas Tote'] },
-    { name: 'Kelas Karya', type: 'Produk digital', accent: '#e4515b', items: ['Workbook Brand', 'Template Konten', 'Kelas Rekaman'] },
+    { name: 'Kelas Karya', type: 'Produk digital', accent: '#5d767b', items: ['Workbook Brand', 'Template Konten', 'Kelas Rekaman'] },
   ]
   const activeStore = liveTypes[activeBusiness]
   return (
@@ -44,9 +44,9 @@ function Landing() {
 
         <div className="hero-v2 shell">
           <div className="hero-copy">
-            <p className="hero-badge"><span /> Toko online yang mengikuti usahamu</p>
-            <h1>Buka toko online.<br /><mark>Tanpa mulai dari nol.</mark></h1>
-            <p className="hero-lead">Pilih bidang usaha, masukkan produk, lalu bagikan. Tampilan, checkout, dan alur pesanan sudah kami siapkan sesuai cara usahamu berjualan.</p>
+            <p className="hero-badge"><span /> Website toko siap pakai</p>
+            <h1>Toko online yang rapi.<br /><mark>Tanpa ribet teknis.</mark></h1>
+            <p className="hero-lead">Pilih jenis usaha, isi produk, lalu bagikan link. Halaman, checkout, dan alur pesanan sudah disiapkan sesuai cara jualanmu.</p>
             <div className="hero-actions">
               <Link className="button button-green" to="/mulai">Buat toko gratis <ArrowRight size={18} /></Link>
               <Link className="play-link" to="/toko/kopi-ruang"><span><MousePointer2 /></span> Coba toko demo</Link>
@@ -60,19 +60,23 @@ function Landing() {
           <div className="hero-art" aria-label="Ilustrasi toko online TokoRupa">
             <div className="art-backdrop" />
             <img src="/assets/hero-commerce.webp" alt="Ilustrasi laptop, tablet, dan HP menampilkan toko online" width="1600" height="800" fetchPriority="high" />
-            <div className="float-note note-order"><BadgeCheck /><span><b>Pesanan masuk</b><small>Baru saja dibayar</small></span></div>
-            <div className="float-note note-theme"><Palette /><span><b>3 jenis usaha</b><small>Fitur berbeda</small></span></div>
-            <div className="float-dot dot-blue" /><div className="float-dot dot-yellow" />
+            <div className="float-note note-order"><BadgeCheck /><span><b>Pesanan masuk</b><small>Siap diproses dari HP</small></span></div>
           </div>
         </div>
       </section>
 
-      <section className="ticker" aria-label="Fitur utama">
-        <div><span>COFFEE SHOP</span><i /> <span>FASHION</span><i /> <span>PRODUK DIGITAL</span><i /> <span>QRIS</span><i /> <span>CHECKOUT TANPA AKUN</span><i /> <span>KELOLA DARI HP</span></div>
+      <section className="trust-strip" aria-label="Fitur utama">
+        <div className="shell">
+          <span>Coffee shop</span>
+          <span>Fashion</span>
+          <span>Produk digital</span>
+          <span>QRIS manual</span>
+          <span>Checkout tanpa akun</span>
+        </div>
       </section>
 
       <section className="steps shell" id="cara-kerja">
-        <header className="section-heading"><span>Mulai tanpa tutorial panjang</span><h2>Tiga langkah, lalu bagikan.</h2></header>
+        <header className="section-heading"><span>Mulai cepat</span><h2>Tiga langkah saja.</h2></header>
         <div className="step-grid">
           <article><b>01</b><Store /><h3>Pilih jenis usaha</h3><p>Kami langsung menyiapkan struktur toko dan fitur yang relevan.</p></article>
           <article><b>02</b><Package /><h3>Masukkan produk</h3><p>Tambahkan foto, harga, varian, stok, atau file yang dijual.</p></article>
@@ -83,8 +87,8 @@ function Landing() {
       <section className="business-band" id="jenis-usaha">
         <div className="shell business-intro">
           <p className="eyebrow dark">Bukan satu template untuk semua</p>
-          <h2>Setiap usaha punya<br />cara jualan sendiri.</h2>
-          <p>Coffee shop perlu topping dan pickup. Fashion perlu varian. Produk digital perlu pengiriman file. TokoRupa memahami perbedaannya.</p>
+          <h2>Tokonya mengikuti jenis usahamu.</h2>
+          <p>Coffee shop, fashion, dan produk digital punya kebutuhan berbeda. TokoRupa menyiapkan struktur yang tepat sejak awal.</p>
         </div>
         <div className="shell business-list">
           {features.map(([title, copy, Icon], index) => (
@@ -98,8 +102,8 @@ function Landing() {
       <section className="live-showcase shell">
         <div className="showcase-copy">
           <span className="eyebrow dark">Coba ganti jenis usaha</span>
-          <h2>Bukan cuma ganti warna. Isi tokonya ikut berubah.</h2>
-          <p>Setiap bidang mendapat susunan katalog dan fitur yang memang dipakai untuk berjualan.</p>
+          <h2>Template berubah sesuai kebutuhan jualan.</h2>
+          <p>Susunan katalog dan fitur dasar menyesuaikan bidang usaha, bukan hanya ganti warna.</p>
           <div className="showcase-tabs">
             {liveTypes.map((store, index) => <button key={store.type} className={activeBusiness === index ? 'active' : ''} onClick={() => setActiveBusiness(index)}><span>0{index + 1}</span>{store.type}</button>)}
           </div>
@@ -123,7 +127,7 @@ function Landing() {
           </div>
           <div className="mobile-ops-copy">
             <span className="eyebrow dark">Bekerja dari mana saja</span>
-            <h2>Tokomu tetap jalan, cukup dari HP.</h2>
+            <h2>Cukup dikelola dari HP.</h2>
             <p>Tambah produk, cek pembayaran, dan proses pesanan tanpa harus membuka laptop atau belajar dashboard yang rumit.</p>
             <div className="ops-points">
               <article><b>01</b><div><strong>Pesanan langsung rapi</strong><span>Tidak perlu mencari chat pelanggan satu per satu.</span></div></article>
@@ -138,7 +142,7 @@ function Landing() {
         <div className="proof-photo"><img src="/assets/fashion-collection.webp" alt="Koleksi produk fashion independen" width="1400" height="933" loading="lazy" /></div>
         <div className="proof-copy">
           <span className="eyebrow dark">Dibuat untuk dikelola dari HP</span>
-          <h2>Tetap sederhana di belakang, tetap meyakinkan di depan.</h2>
+          <h2>Sederhana dipakai, tetap terlihat serius.</h2>
           <ul>
             <li><Check /> Checkout tanpa akun pembeli</li>
             <li><Check /> QRIS manual dan payment gateway</li>
@@ -151,14 +155,14 @@ function Landing() {
 
       <section className="pricing" id="harga">
         <div className="shell pricing-inner">
-          <div><span className="eyebrow">Harga yang masuk akal</span><h2>Mulai gratis.<br />Naik saat usahamu tumbuh.</h2></div>
+          <div><span className="eyebrow">Harga jelas</span><h2>Mulai gratis. Upgrade saat perlu.</h2></div>
           <article className="price-card"><span>Gratis</span><strong>Rp0</strong><small>selamanya</small><p>10 produk, QRIS manual, tautan TokoRupa, pesanan WhatsApp.</p><Link to="/mulai">Mulai gratis <ArrowRight /></Link></article>
           <article className="price-card featured"><span>Tumbuh</span><strong>Rp39.000</strong><small>per bulan</small><p>Produk tak terbatas, payment gateway, domain sendiri, analitik.</p><Link to="/mulai">Coba 14 hari <ArrowRight /></Link></article>
         </div>
       </section>
 
       <section className="footer-cta">
-        <div className="shell"><div><span>Tidak perlu menunggu semuanya sempurna.</span><h2>Buka tokomu hari ini.</h2></div><Link className="button button-cream" to="/mulai">Mulai gratis <ArrowRight /></Link></div>
+        <div className="shell"><div><span>Tidak perlu mulai dari kosong</span><h2>Buka toko pertamamu.</h2></div><Link className="button button-cream" to="/mulai">Mulai gratis <ArrowRight /></Link></div>
       </section>
 
       <footer className="site-footer">
