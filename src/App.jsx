@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import {
-  ArrowRight, BadgeCheck, BarChart3, Check, ChevronRight, Coffee, CreditCard,
+  ArrowRight, BarChart3, Check, ChevronRight, Coffee, CreditCard,
   Download, ExternalLink, FileText, LayoutDashboard, Mail, Menu, MessageCircle,
   MousePointer2, Package, Plus, QrCode, Search, Settings, ShoppingBag, Store,
   Upload, Wallet, X,
@@ -28,39 +28,39 @@ function Landing() {
   return (
     <main className="landing">
       <section className="hero">
-        <nav className="nav shell">
-          <Brand />
-          <button className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Buka menu">
-            {menuOpen ? <X /> : <Menu />}
-          </button>
-          <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-            <a href="#cara-kerja">Cara kerja</a>
-            <a href="#jenis-usaha">Jenis usaha</a>
-            <a href="#harga">Harga</a>
-            <Link to="/login">Masuk</Link>
-            <Link className="button button-cream" to="/mulai">Buat toko</Link>
-          </div>
-        </nav>
+        <div className="landing-card shell">
+          <nav className="nav">
+            <Brand />
+            <button className="nav-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Buka menu">
+              {menuOpen ? <X /> : <Menu />}
+            </button>
+            <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
+              <a href="#cara-kerja">Cara kerja</a>
+              <a href="#jenis-usaha">Jenis usaha</a>
+              <a href="#harga">Harga</a>
+              <Link to="/login">Masuk</Link>
+              <Link className="button button-cream" to="/mulai">Buat toko</Link>
+            </div>
+          </nav>
 
-        <div className="hero-v2 shell">
-          <div className="hero-copy">
-            <p className="hero-badge"><span /> Website toko siap pakai</p>
-            <h1>Toko online yang rapi.<br /><mark>Tanpa ribet teknis.</mark></h1>
-            <p className="hero-lead">Pilih jenis usaha, isi produk, lalu bagikan link. Halaman, checkout, dan alur pesanan sudah disiapkan sesuai cara jualanmu.</p>
-            <div className="hero-actions">
-              <Link className="button button-green" to="/mulai">Buat toko gratis <ArrowRight size={18} /></Link>
-              <Link className="play-link" to="/toko/kopi-ruang"><span><MousePointer2 /></span> Coba toko demo</Link>
+          <div className="hero-v2">
+            <div className="hero-copy">
+              <p className="hero-badge"><span /> Website toko siap pakai</p>
+              <h1>Toko online yang rapi.<br /><mark>Tanpa ribet teknis.</mark></h1>
+              <p className="hero-lead">Pilih jenis usaha, isi produk, lalu bagikan link. Halaman, checkout, dan alur pesanan sudah disiapkan sesuai cara jualanmu.</p>
+              <div className="hero-actions">
+                <Link className="button button-green" to="/mulai">Buat toko gratis <ArrowRight size={18} /></Link>
+                <Link className="play-link" to="/toko/kopi-ruang"><span><MousePointer2 /></span> Coba toko demo</Link>
+              </div>
+              <div className="hero-proof">
+                <span><Check /> Gratis untuk mulai</span>
+                <span><Check /> Kelola dari HP</span>
+                <span><Check /> Pembeli tanpa login</span>
+              </div>
             </div>
-            <div className="hero-proof">
-              <span><Check /> Gratis untuk mulai</span>
-              <span><Check /> Kelola dari HP</span>
-              <span><Check /> Pembeli tanpa login</span>
+            <div className="hero-art" aria-label="Ilustrasi toko online TokoRupa">
+              <img src="/assets/hero-ui-commerce.webp" alt="Ilustrasi dashboard dan storefront mobile TokoRupa" width="1536" height="1024" fetchPriority="high" />
             </div>
-          </div>
-          <div className="hero-art" aria-label="Ilustrasi toko online TokoRupa">
-            <div className="art-backdrop" />
-            <img src="/assets/hero-commerce.webp" alt="Ilustrasi laptop, tablet, dan HP menampilkan toko online" width="1600" height="800" fetchPriority="high" />
-            <div className="float-note note-order"><BadgeCheck /><span><b>Pesanan masuk</b><small>Siap diproses dari HP</small></span></div>
           </div>
         </div>
       </section>
